@@ -1,0 +1,141 @@
+ThinkPhp学习收藏：
+              if ($("form#add_kpi_form #belong_team").val()=="" || $("form#add_kpi_form #belong_domain").val()==""){
+                      $.messager.alert('提示信息','所属Team/Domain必须选择！','info');
+              }
+
+
+ $objPHPExcel->getActiveSheet(0)->getStyle('A2:U3')->getFont()->getColor()->setRGB('00b050'); //设置字体颜色
+
+
+      $("#belong_team").change(function(){
+            getDomain();
+      });
+
+      function getDomain()
+      {
+            $("#belong_domain").empty();
+            $.getJSON("__APP__/Kpi/getDomain", {teamid:$("#belong_team").val()}, function(data) {
+                  $.each(data, function(key,value) {
+                        $("<option></option>").val(key).text(value).appendTo($("#belong_domain"));
+                  });
+            });
+      }
+
+
+      // $(document).ready(function(){
+      //       getDomain();
+      // });
+
+
+            <select id="belong_domain" name="belong_domain" class="easyui-combobox" style="width:200px;" data-options="
+                onLoadSuccess: function(){ 
+                    var domain = $('form#select_form #belong_domain');
+                    var data = domain.combobox('getData');      
+                }
+            " >
+
+
+
+                         <select id="end_week" name="end_week" class="easyui-combobox" style="width:70px;">
+                    <option value="">请选择</option>
+                    <for start="1" end="53">
+                            <option value="{$i}">
+                                    <if condition="$i lt 10 ">Week0{$i}
+                                <else />Week{$i}
+                                </if>
+                            </option>
+                    </for>
+            </select>
+
+============AddKpi.html
+<!--onChange="getDomain(this.value,{$teamlist|count},{$team_r_domain|count})"-->
+
+<!-- <volist name="domainlist" id="domain_vo">
+  <option value="{$key}">{$domain_vo}</option>
+</volist>                 -->          
+
+
+#echo __URL__;   //                   /new/Rbac
+#echo __APP__;  //                   /new
+#echo __ACTION__;  //            /new/Rbac/addRoleHandle
+
+============KpiAction.class.php
+// $Role = M('Role');  //实例化think_role表为一个Module
+// $data['name'] = $_POST['rolename'];  //name是字段名
+
+// if($Role->add($data)){
+// 	$this->success("add success","showRole");
+// }
+
+//$this->assign("a","aaa");   JS调用: alert('{$a}');
+
+定义变量
+<script>
+     var $dg_kpilist;
+     $(function(){
+	$dg_kpilist=$("#dg_kpilist");
+     });
+</script>
+
+
+
+=========浅谈datagrid详细操作单元格样式
+    $('#tt').datagrid({   
+        url: 'datagrid_data2.json',   
+        title: 'DataGrid - ContextMenu',   
+        width: 700,   
+        height: 'auto',   
+        fitColumns: true,   
+        columns: [[   
+            {field: 'itemid',title: 'Item ID',width: 80},   
+            {field: 'productid',title: 'Product ID',width: 120},    
+            {field: 'listprice',title: 'List Price',width: 80,align: 'right'},    
+            {field: 'unitcost',title: 'Unit Cost',width: 80,align: 'center'},    
+            {field: 'attr1',title: 'Attribute',width: 250},    
+            {field: 'status',title: 'Status',width: 60,align: 'center'}   
+        ]],   
+        onLoadSuccess: function(data){   
+            var panel = $(this).datagrid('getPanel');   
+            var tr = panel.find('div.datagrid-body tr');   
+            tr.each(function(){   
+                var td = $(this).children('td[field="unitcost"]');   
+                td.children("div").css({   
+                    "text-align": "right"  
+                });   
+                ;   
+            });   
+        }   
+    });  
+
+
+        toolbar: [{
+                text: '新增',
+                iconCls: 'icon-add',
+                handler: context.addView
+            }, {
+                text: '删除',
+                iconCls: 'icon-remove',
+                handler: context.doDelete
+            }],
+
+
+
+field方法：定义要查询的字段
+field方法的参数支持字符串和数组，例如，
+$Model->field(‘id,nickname as name’)->select();
+$Model->field(array(‘id’,'nickname’=>’name’))->select();
+
+
+
+
+easyui datagrid 返回无数据时的处理
+http://emer.emlog.net/url/index/id/87917.html
+
+
+
+
+M实例化参数是数据库的表名。
+D实例化的是你自己在Model文件夹下面建立的模型文件
+
+
+http://doc.thinkphp.cn/manual/data_page.html

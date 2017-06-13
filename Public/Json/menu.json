@@ -1,0 +1,50 @@
+﻿[
+  {
+    "id": 6,
+    "text": "系统设置",
+    "state": "closed",
+    "iconCls": "icon-application",
+    "children": [
+      {
+        "text": "系统日志",
+        "iconCls": "icon-system",
+        "children": [
+          {
+            "text": "用户日志",
+            "iconCls": "icon-userlog",
+            "attributes": {
+              "url": "/LogUser/showList"
+            }
+          },
+          {
+            "text": "接口日志",
+            "iconCls": "icon-apilog",
+            "attributes": {
+              "url": "/LogApi/showList"
+            }
+          }
+        ]
+      },
+      {
+        "text": "系统选项",
+        "iconCls": "icon-system",
+        "children": [
+          {
+            "text": "菜单权限",
+            "iconCls": "icon-role",
+            "attributes": {
+              "url": "/UserRight/showMenuList"
+            }
+          },
+          {
+            "text": "退出系统",
+            "iconCls": "icon-exit",
+            "attributes": {
+              "url": "/Public/doLogout"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
